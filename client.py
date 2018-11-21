@@ -11,7 +11,7 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:63.0) Gecko/20100101 Firefox/63.0'
 }
 
-file = open("testfile.txt", "w")
+file = open("saol2018.csv", "w")
 
 
 def main():
@@ -24,7 +24,7 @@ def main():
             break
         data['unik'] = unik
 
-
+# Parse the html response from svenska.se
 def parse_response(response):
     soup = BeautifulSoup(response.text, features="html.parser")
     links = soup.findAll("a", class_='slank')

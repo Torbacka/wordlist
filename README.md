@@ -3,14 +3,14 @@
 Purpose of this program is to gather the complete wordlist from svenska akademiens ordlista.
 
 
-### How to run the program
-I would recommend using pipenv
+### How to run
+I would recommend using pipenv. Pipenv will setup a pip environment and install all packages found in Pipfile for you.
 
 ```bash
 $ pipenv install
 ```
 
-This will setup a pip environment and install all packages found in Pipfile. 
+Then you can just run the crawler.
 
 ```bash
 $ python client.py
