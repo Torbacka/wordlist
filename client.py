@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 data = {
     'action': 'myprefix_scrollist',
-    'unik': '',
+    'unik': '3568307',
     'dir': 'ned',
     'dict': 'saol'
 }
@@ -11,12 +11,12 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:63.0) Gecko/20100101 Firefox/63.0'
 }
 
-file = open("saol2018.csv", "w")
+file = open("saol2018.csv", "a")
 
 
 def main():
-    for i in range(1, 3000):
-        if 1000 % 100 == 0:
+    for i in range(1, 12000):
+        if i % 30 == 0:
             print(i)
         response = requests.post('https://svenska.se/wp-admin/admin-ajax.php', data=data, headers=headers)
         unik = parse_response(response)
