@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 data = {
     'action': 'myprefix_scrollist',
-    'unik': '3568307',
+    'unik': '0',
     'dir': 'ned',
     'dict': 'saol'
 }
@@ -15,7 +15,7 @@ file = open("saol2018.csv", "a")
 
 
 def main():
-    for i in range(1, 12000):
+    for i in range(1, 20000):
         if i % 30 == 0:
             print(i)
         response = requests.post('https://svenska.se/wp-admin/admin-ajax.php', data=data, headers=headers)
@@ -24,13 +24,14 @@ def main():
             break
         data['unik'] = unik
 
+
 # Parse the html response from svenska.se
 def parse_response(response):
     soup = BeautifulSoup(response.text, features="html.parser")
     links = soup.findAll("a", class_='slank')
     if len(links) == 0:
         return -1
-    for link in links:
+    for link in links[1:]:
         gather_information(link)
     div = soup.findAll("div", class_='pilned')
     return div[0].a['unik']
